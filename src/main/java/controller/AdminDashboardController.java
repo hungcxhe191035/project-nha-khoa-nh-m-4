@@ -12,8 +12,13 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
+<<<<<<< HEAD
+//GIOIHE190826
 //gioidz
+//hieuuuuuu
+>>>>>>> 13698fed4109f0d9fe58ef008152423f9e367842
 //hung ddziiii
+//TungPham123
 @WebServlet("/admin/dashboard")
 public class AdminDashboardController extends HttpServlet {
     private ReportDAO reportDAO = new ReportDAO();
