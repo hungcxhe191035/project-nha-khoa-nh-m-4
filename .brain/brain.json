@@ -1,0 +1,45 @@
+{
+  "project": {
+    "name": "Nhasi-sv",
+    "description": "Ứng dụng web quản lý phòng khám nha khoa, bao gồm xem thông tin, đặt lịch hẹn, quản lý khám chữa bệnh, kê đơn, bán thuốc và quản trị hệ thống.",
+    "created_at": "2026-03-09T07:49:00+07:00"
+  },
+  "tech_stack": [],
+  "features": [
+    "Khách vãng lai xem thông tin dịch vụ, giờ hoạt động, bảng giá",
+    "Khách hàng đặt lịch hẹn, chọn bác sĩ, chọn giờ, chọn dịch vụ",
+    "Nhân viên tiếp đón check thông tin, đặt lịch trực tiếp",
+    "Bác sĩ ghi nhận kết quả khám, chỉ định dịch vụ, kê đơn thuốc",
+    "Thanh toán và mua thuốc theo đơn (toàn bộ hoặc một phần)",
+    "Admin quản trị trang web, người dùng, dịch vụ, danh mục"
+  ],
+  "decisions": [],
+  "database_schema": {
+    "summary": "Quản lý cơ sở dữ liệu nha khoa gồm: Users (bệnh nhân/bs/admin), Doctors (bác sĩ chi tiết), Services (dịch vụ), Schedules (lịch rảnh), Appointments (lịch hẹn đã đặt), Doctor_Services (bảng trung gian gán dịch vụ cho bác sĩ)",
+    "relationships": [
+      "1 Bác sĩ (Doctor) liên kết với 1 User thông qua user_id",
+      "1 Bác sĩ (Doctor) có thể làm nhiều Dịch vụ (Service) thông qua Doctor_Services",
+      "1 Bác sĩ có nhiều Lịch rảnh (Schedule)",
+      "1 Lịch hẹn (Appointment) kết nối Bệnh nhân (User), Bác sĩ (Doctor), Dịch vụ (Service) và Khung giờ (Schedule)"
+    ]
+  },
+  "knowledge_items": {
+    "gotchas": [
+      {
+        "error": "NumberFormatException khi Servlet nhận dữ liệu từ Form (Ví dụ: request.getParameter('schedule_id'))",
+        "cause": "Dữ liệu gửi từ HTML form lên bị thiếu (chuỗi rỗng an empty string), nhưng thuật toán Java vẫn cố gắng dùng Integer.parseInt()",
+        "solution": "Luôn kiểm tra biến String có null hoặc rỗng (.isEmpty()) trước khi parse. Bọc trong try-catch NumberFormatException."
+      },
+      {
+        "error": "Violation of UNIQUE KEY constraint khi chạy file schema.sql chứa Seed Data",
+        "cause": "Cột như Email hoặc Phone được set UNIQUE, nhưng trong lệnh INSERT INTO lại bỏ trống (giá trị mặc định là NULL) cho nhiều dòng. SQL Server coi nhiều giá trị NULL là trùng lặp.",
+        "solution": "Trong lệnh Seed Data, cung cấp các dummy data (ví dụ email giả khác nhau) cho những cột bị gắn cờ UNIQUE."
+      },
+      {
+        "error": "Mất dữ liệu sau khi chạy file tạo Database Schema bằng lệnh DROP",
+        "cause": "Quên khai báo đầy đủ các bảng và Seed Data trong file .sql (Ví dụ thiếu bảng Doctor_Services và dữ liệu của 4 bác sĩ). Khi chạy lệnh IF EXISTS DROP, dữ liệu nhập tay trên DBMS sẽ bị bốc hơi vĩnh viễn.",
+        "solution": "Mọi thay đổi về cấu trúc bảng hoặc thêm 1 dữ liệu quan trọng nên được viết cứng vào file schema.sql để tái sử dụng."
+      }
+    ]
+  }
+}

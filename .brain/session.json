@@ -1,0 +1,48 @@
+{
+  "updated_at": "2026-03-16T08:15:00+07:00",
+  "working_on": {
+    "feature": "Cốt lõi Hệ thống",
+    "task": "Hoàn thiện Bác sĩ, Thu ngân, Lễ tân và Admin",
+    "status": "completed",
+    "files": [
+      "src/main/java/controller/DoctorExaminationController.java",
+      "src/main/webapp/doctor/examination.jsp",
+      "src/main/webapp/doctor/dashboard.jsp",
+      "src/main/java/dao/AppointmentDAO.java",
+      "src/main/java/dao/MedicalRecordDAO.java",
+      "src/main/java/dao/MedicineDAO.java",
+      "src/main/java/dao/ServiceDAO.java",
+      "src/main/java/controller/BillingController.java",
+      "src/main/webapp/staff/billing.jsp",
+      "src/main/webapp/staff/dashboard.jsp",
+      "src/main/java/controller/StaffBookingController.java",
+      "src/main/webapp/staff/booking.jsp",
+      "src/main/java/controller/AdminUserController.java",
+      "src/main/webapp/admin/users.jsp"
+    ],
+    "blockers": [],
+    "notes": "Đã hoàn thành 4 Phase lớn. Chuyển sang giai đoạn test ứng dụng."
+  },
+  "pending_tasks": [
+    {
+      "task": "Test luồng end-to-end: Đặt lịch -> Khám -> Thanh toán",
+      "priority": "high",
+      "notes": "Cần chạy localhost để manual test"
+    }
+  ],
+  "recent_changes": [
+    {
+      "timestamp": "2026-03-16T08:15:00+07:00",
+      "type": "feature",
+      "description": "Thêm tính năng Khám Bệnh cho Bác sĩ, đặt lịch tại quầy cho Lễ Tân và Thanh toán",
+      "files": ["Nhiều files Controller, DAO, JSP"]
+    }
+  ],
+  "errors_encountered": [],
+  "decisions_made": [
+    {
+      "decision": "Nhúng trực tiếp tính năng thêm lịch vào JSP qua JS fetch API",
+      "reason": "Tạo UX mượt mà khi lọc danh sách giờ khám/dịch vụ theo bác sĩ"
+    }
+  ]
+}
