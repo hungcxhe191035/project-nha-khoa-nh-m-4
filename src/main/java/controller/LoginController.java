@@ -61,7 +61,7 @@ public class LoginController extends HttpServlet {
                     response.sendRedirect("staff/dashboard");
                     break;
                 case "DOCTOR":
-                    response.sendRedirect("doctor/workspace");
+                    response.sendRedirect("doctor/dashboard");
                     break;
                 case "PATIENT":
                     response.sendRedirect("patient/profile");

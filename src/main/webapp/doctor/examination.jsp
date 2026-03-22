@@ -35,8 +35,8 @@
     </div>
 
     <div class="record-body">
-        <form action="${pageContext.request.contextPath}/doctor/record" method="POST" id="recordForm">
-            <input type="hidden" name="apt_id" value="${apt_id}">
+        <form action="${pageContext.request.contextPath}/doctor/examination" method="POST" id="recordForm">
+            <input type="hidden" name="apt_id" value="${appointment.id}">
             
             <c:if test="${not empty error}">
                 <div class="error-msg" style="margin-bottom: 1.5rem;">${error}</div>
@@ -83,13 +83,13 @@
 <script>
     // Nhúng data từ Java sang JS Variable dưới dạng mảng JSON
     const servicesData = [
-        <c:forEach var="s" items="${servicesList}">
+        <c:forEach var="s" items="${allServices}">
             { id: ${s.id}, name: "${s.name} - ${s.price}đ" },
         </c:forEach>
     ];
 
     const medicinesData = [
-        <c:forEach var="m" items="${medicinesList}">
+        <c:forEach var="m" items="${allMedicines}">
             { id: ${m.id}, name: "${m.name} (${m.unit}) - Tồn kho: ${m.stockQuantity}" },
         </c:forEach>
     ];

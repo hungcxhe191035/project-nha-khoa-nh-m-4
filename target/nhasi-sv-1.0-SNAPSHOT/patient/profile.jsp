@@ -99,8 +99,8 @@
                                         <span style="color: var(--secondary); font-weight: 600;">Đã thanh toán</span>
                                     </div>
                                     <p><strong>Bác sĩ:</strong> ${apt.doctorName}</p>
-                                    <!-- Xem chi tiết kết quả khám (Giai đoạn sau) -->
-                                    <a href="#" style="color: var(--primary); font-size: 0.9rem; text-decoration: underline;">Xem Toa thuốc & Khám</a>
+                                    <!-- Xem chi tiết kết quả khám -->
+                                    <a href="${pageContext.request.contextPath}/patient/record?apt_id=${apt.id}" style="color: var(--primary); font-size: 0.9rem; text-decoration: underline;">Xem Toa thuốc & Khám</a>
                                 </div>
                             </div>
                         </c:when>

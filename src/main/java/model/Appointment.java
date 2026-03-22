@@ -46,4 +46,21 @@ public class Appointment {
     public void setScheduleDate(String scheduleDate) { this.scheduleDate = scheduleDate; }
     public String getScheduleTime() { return scheduleTime; }
     public void setScheduleTime(String scheduleTime) { this.scheduleTime = scheduleTime; }
+
+    private boolean paid;
+    public boolean isPaid() { return paid; }
+    public void setPaid(boolean paid) { this.paid = paid; }
+
+    public boolean isExamineReady() {
+        if (scheduleDate == null || scheduleTime == null) return false;
+        try {
+            String timeStr = scheduleTime.length() > 8 ? scheduleTime.substring(0, 8) : scheduleTime;
+            java.time.LocalDate date = java.time.LocalDate.parse(scheduleDate);
+            java.time.LocalTime time = java.time.LocalTime.parse(timeStr);
+            java.time.LocalDateTime aptDateTime = java.time.LocalDateTime.of(date, time);
+            return !java.time.LocalDateTime.now().isBefore(aptDateTime);
+        } catch (Exception e) {
+            return true;
+        }
+    }
 }

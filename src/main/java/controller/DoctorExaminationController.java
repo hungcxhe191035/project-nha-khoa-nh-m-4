@@ -79,6 +79,9 @@ public class DoctorExaminationController extends HttpServlet {
                 // Lấy danh sách thuốc đã kê
                 List<PrescriptionDetail> prescriptions = medicalRecordDAO.getPrescriptionsByRecordId(record.getId());
                 request.setAttribute("prescriptions", prescriptions);
+                
+                request.getRequestDispatcher("/doctor/record-detail.jsp").forward(request, response);
+                return;
             }
 
             // Lấy danh sách thuốc và dịch vụ để hiển thị trong form kê thêm
@@ -110,7 +113,7 @@ public class DoctorExaminationController extends HttpServlet {
         }
 
         try {
-            int appointmentId = Integer.parseInt(request.getParameter("appointment_id"));
+            int appointmentId = Integer.parseInt(request.getParameter("apt_id"));
             String diagnosis = request.getParameter("diagnosis");
             
             // 1. Tạo Medical Record

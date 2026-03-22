@@ -1,9 +1,11 @@
 controller\MedicalRecordController.class
+controller\StaffBillingListController.class
 controller\HomeController.class
 model\Schedule.class
 dao\ScheduleDAO.class
 model\PrescriptionDetail.class
 controller\RegisterController.class
+controller\StaffPatientRegistrationController.class
 model\Medicine.class
 controller\LoginController.class
 controller\DoctorExaminationController.class
@@ -15,6 +17,7 @@ dao\MedicineDAO.class
 controller\PatientProfileController.class
 model\User.class
 dao\MedicalRecordDAO.class
+controller\DoctorHistoryController.class
 controller\DoctorDashboardController.class
 dao\ReportDAO.class
 dao\AppointmentDAO.class
@@ -25,6 +28,7 @@ controller\StaffDashboardController.class
 controller\AdminMedicineController.class
 controller\StaffBookingController.class
 controller\BookingController.class
+controller\PatientRecordController.class
 dao\ServiceDAO.class
 model\MedicalRecord.class
 dao\DoctorDAO.class
