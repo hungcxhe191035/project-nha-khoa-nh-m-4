@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\MSI GAMING\OneDrive\Desktop\du an nha si\project-nha-khoa-nh-m-4\src\main\java\controller\PatientProfileController.java
 C:\Users\MSI GAMING\OneDrive\Desktop\du an nha si\project-nha-khoa-nh-m-4\src\main\java\dao\DBContext.java
 C:\Users\MSI GAMING\OneDrive\Desktop\du an nha si\project-nha-khoa-nh-m-4\src\main\java\controller\StaffDashboardController.java
@@ -29,3 +30,36 @@ C:\Users\MSI GAMING\OneDrive\Desktop\du an nha si\project-nha-khoa-nh-m-4\src\ma
 C:\Users\MSI GAMING\OneDrive\Desktop\du an nha si\project-nha-khoa-nh-m-4\src\main\java\model\Medicine.java
 C:\Users\MSI GAMING\OneDrive\Desktop\du an nha si\project-nha-khoa-nh-m-4\src\main\java\controller\RegisterController.java
 C:\Users\MSI GAMING\OneDrive\Desktop\du an nha si\project-nha-khoa-nh-m-4\src\main\java\dao\AppointmentDAO.java
+=======
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\Appointment.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\LoginController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\MedicalRecordDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\Schedule.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\ReportDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\AdminUserController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\ServiceDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\User.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\StaffDashboardController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\MedicalRecordService.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\MedicalRecord.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\BookingController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\HomeController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\DoctorExaminationController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\MedicalRecordController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\DBContext.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\UserDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\DoctorDashboardController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\PrescriptionDetail.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\RegisterController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\BillingController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\Medicine.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\MedicineDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\PatientProfileController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\ScheduleDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\StaffBookingController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\AdminMedicineController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\AppointmentDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\controller\AdminDashboardController.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\dao\DoctorDAO.java
+D:\Project\project-nha-khoa-nh-m-4\src\main\java\model\Service.java
+>>>>>>> 07402377371a87c23e414911c5376b9ad69ce20e
