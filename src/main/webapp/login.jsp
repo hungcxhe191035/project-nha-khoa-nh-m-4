@@ -38,7 +38,7 @@
                     <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; margin: 0; color: var(--gray);">
                         <input type="checkbox"> Ghi nhớ
                     </label>
-                    <a href="#" style="color: var(--primary); text-decoration: none;">Quên mật khẩu?</a>
+                    <a href="#" onclick="alert('Hệ thống đang bảo trì tính năng này. Vui lòng liên hệ Admin để cấp lại mật khẩu.'); return false;" style="color: var(--primary); text-decoration: none;">Quên mật khẩu?</a>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block" style="text-align: center;">Đăng nhập hệ thống</button>

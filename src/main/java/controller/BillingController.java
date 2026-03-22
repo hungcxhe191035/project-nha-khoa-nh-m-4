@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import dao.AppointmentDAO;
+import java.util.List;
 
 @WebServlet("/staff/billing")
 public class BillingController extends HttpServlet {
@@ -21,6 +23,17 @@ public class BillingController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        jakarta.servlet.http.HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("user") == null) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
+        model.User staff = (model.User) session.getAttribute("user");
+        if (!"STAFF".equals(staff.getRole()) && !"ADMIN".equals(staff.getRole())) {
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
+
         String aptIdStr = request.getParameter("apt_id");
         if (aptIdStr == null || aptIdStr.isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/staff/dashboard");
@@ -31,8 +44,7 @@ public class BillingController extends HttpServlet {
         MedicalRecord record = medicalRecordDAO.getMedicalRecordByAppointment(aptId);
 
         if (record == null) {
-            request.setAttribute("error", "Không tìm thấy hồ sơ bệnh án cho lịch hẹn này.");
-            request.getRequestDispatcher("/staff/dashboard.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/staff/dashboard?error=not_found");
             return;
         }
 
@@ -65,6 +77,17 @@ public class BillingController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        jakarta.servlet.http.HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("user") == null) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
+        model.User staff = (model.User) session.getAttribute("user");
+        if (!"STAFF".equals(staff.getRole()) && !"ADMIN".equals(staff.getRole())) {
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
+
         try {
             int recordId = Integer.parseInt(request.getParameter("record_id"));
 
@@ -95,11 +118,11 @@ public class BillingController extends HttpServlet {
                 }
             }
 
-            response.sendRedirect(request.getContextPath() + "/staff/dashboard?msg=payment_success");
+            response.sendRedirect(request.getContextPath() + "/staff/billing-list?msg=payment_success");
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/staff/dashboard?error=payment_failed");
+            response.sendRedirect(request.getContextPath() + "/staff/billing-list?error=payment_failed");
         }
     }
 }

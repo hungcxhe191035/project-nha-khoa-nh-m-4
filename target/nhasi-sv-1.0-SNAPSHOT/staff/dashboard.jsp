@@ -44,9 +44,9 @@
         </div>
 
         <ul class="sidebar-menu">
-            <li><a href="#" class="active"><i class="fa-solid fa-calendar-check"></i> Quản lý Lịch hẹn</a></li>
-            <li><a href="#"><i class="fa-solid fa-users"></i> Đăng ký Khách mới</a></li>
-            <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Hóa đơn & Thuốc</a></li>
+            <li><a href="${pageContext.request.contextPath}/staff/dashboard" class="active"><i class="fa-solid fa-calendar-check"></i> Quản lý Lịch hẹn</a></li>
+            <li><a href="${pageContext.request.contextPath}/staff/register-patient"><i class="fa-solid fa-users"></i> Đăng ký Khách mới</a></li>
+            <li><a href="${pageContext.request.contextPath}/staff/billing-list"><i class="fa-solid fa-file-invoice-dollar"></i> Hóa đơn & Thuốc</a></li>
         </ul>
 
         <div style="position: absolute; bottom: 2rem; width: 212px;">
@@ -118,7 +118,14 @@
                                         <button class="btn btn-primary" style="background: var(--light); color: var(--gray); cursor: not-allowed; padding: 0.4rem 0.8rem; font-size: 0.85rem;">Đã Check-in</button>
                                     </c:when>
                                     <c:when test="${apt.status == 'COMPLETED'}">
-                                        <a href="${pageContext.request.contextPath}/staff/billing?apt_id=${apt.id}" class="btn btn-primary" style="background: #10B981; border: 1px solid #10B981; padding: 0.4rem 0.8rem; font-size: 0.85rem;"><i class="fa-solid fa-file-invoice-dollar"></i> Thanh Toán</a>
+                                        <c:choose>
+                                            <c:when test="${apt.paid}">
+                                                <span class="badge" style="background: var(--light); color: var(--gray); font-weight: normal;"><i class="fa-solid fa-check"></i> Đã Thu Tiền</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a href="${pageContext.request.contextPath}/staff/billing?apt_id=${apt.id}" class="btn btn-primary" style="background: #10B981; border: 1px solid #10B981; padding: 0.4rem 0.8rem; font-size: 0.85rem;"><i class="fa-solid fa-file-invoice-dollar"></i> Thanh Toán</a>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:when>
                                     <c:otherwise>
                                         <span style="color: var(--gray); font-size: 0.9rem;">Không khả dụng</span>

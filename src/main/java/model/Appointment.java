@@ -46,4 +46,8 @@ public class Appointment {
     public void setScheduleDate(String scheduleDate) { this.scheduleDate = scheduleDate; }
     public String getScheduleTime() { return scheduleTime; }
     public void setScheduleTime(String scheduleTime) { this.scheduleTime = scheduleTime; }
+
+    private boolean paid;
+    public boolean isPaid() { return paid; }
+    public void setPaid(boolean paid) { this.paid = paid; }
 }

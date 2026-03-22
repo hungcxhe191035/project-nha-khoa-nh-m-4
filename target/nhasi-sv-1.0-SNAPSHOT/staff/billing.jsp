@@ -42,6 +42,7 @@
     <div class="billing-body">
         <form action="${pageContext.request.contextPath}/staff/billing" method="POST" id="billingForm">
             <input type="hidden" name="record_id" value="${record.id}">
+            <input type="hidden" name="apt_id" value="${record.appointmentId}">
             
             <div style="background: #F0FDF4; border-left: 4px solid #16A34A; padding: 1rem; margin-bottom: 2rem; border-radius: 4px;">
                 <i class="fa-solid fa-check"></i> <strong>Hoàn tất khám bệnh:</strong> Phiếu ghi nhận từ Hệ thống Bác Sĩ.

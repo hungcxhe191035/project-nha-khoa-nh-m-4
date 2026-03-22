@@ -42,8 +42,8 @@
         </div>
 
         <ul class="sidebar-menu">
-            <li><a href="#" class="active"><i class="fa-solid fa-list-check"></i> Ca Khám Của Tôi</a></li>
-            <li><a href="#"><i class="fa-solid fa-file-medical"></i> Lịch Sử Bệnh Án</a></li>
+            <li><a href="${pageContext.request.contextPath}/doctor/dashboard" class="active"><i class="fa-solid fa-list-check"></i> Ca Khám Của Tôi</a></li>
+            <li><a href="${pageContext.request.contextPath}/doctor/history"><i class="fa-solid fa-file-medical"></i> Lịch Sử Bệnh Án</a></li>
         </ul>
 
         <div style="position: absolute; bottom: 2rem; width: 212px;">

@@ -1,7 +1,9 @@
 package controller;
 
 import dao.AppointmentDAO;
+import dao.MedicalRecordDAO;
 import model.Appointment;
+import model.MedicalRecord;
 import model.User;
 
 import jakarta.servlet.ServletException;
@@ -40,6 +42,16 @@ public class StaffDashboardController extends HttpServlet {
 
         // Lấy tất cả lịch hẹn đẩy ra giao diện Lễ Tân
         List<Appointment> allAppointments = aptDAO.getAllAppointments();
+        MedicalRecordDAO medicalRecordDAO = new MedicalRecordDAO();
+        for (Appointment apt : allAppointments) {
+            if ("COMPLETED".equals(apt.getStatus())) {
+                MedicalRecord record = medicalRecordDAO.getMedicalRecordByAppointment(apt.getId());
+                if (record != null && "PAID".equals(record.getServicePaymentStatus())) {
+                    apt.setPaid(true);
+                }
+            }
+        }
+        
         request.setAttribute("appointments", allAppointments);
         
         request.getRequestDispatcher("/staff/dashboard.jsp").forward(request, response);

@@ -40,7 +40,14 @@ public class DoctorDashboardController extends HttpServlet {
 
         // Lấy danh sách Lịch khám của Bác Sĩ (Dựa trên User ID của bác sĩ đó đang Login)
         List<Appointment> doctorAppointments = doctorDAO.getAppointmentsByDoctorUser(doctor.getId());
-        request.setAttribute("appointments", doctorAppointments);
+        java.util.List<Appointment> confirmedAppointments = new java.util.ArrayList<>();
+        for (Appointment apt : doctorAppointments) {
+            if ("CONFIRMED".equals(apt.getStatus())) {
+                confirmedAppointments.add(apt);
+            }
+        }
+        
+        request.setAttribute("appointments", confirmedAppointments);
         
         request.getRequestDispatcher("/doctor/dashboard.jsp").forward(request, response);
     }
