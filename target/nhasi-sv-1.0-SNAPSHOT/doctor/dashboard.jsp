@@ -92,7 +92,14 @@
                             <td>
                                 <c:choose>
                                     <c:when test="${apt.status == 'CONFIRMED'}">
-                                        <a href="${pageContext.request.contextPath}/doctor/examination?id=${apt.id}" class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;"><i class="fa-solid fa-stethoscope"></i> Viết Bệnh Án</a>
+                                        <c:choose>
+                                            <c:when test="${apt.examineReady}">
+                                                <a href="${pageContext.request.contextPath}/doctor/examination?id=${apt.id}" class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;"><i class="fa-solid fa-stethoscope"></i> Viết Bệnh Án</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <button class="btn" style="background: var(--light); color: var(--gray); padding: 0.4rem 0.8rem; font-size: 0.85rem; border: none; cursor: not-allowed; border-radius: 8px;" title="Chưa tới giờ hẹn"><i class="fa-solid fa-clock"></i> Chưa Đến Giờ</button>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:when>
                                     <c:otherwise>
                                         <a href="${pageContext.request.contextPath}/doctor/examination?id=${apt.id}" class="btn btn-primary" style="background: var(--light); color: var(--gray); padding: 0.4rem 0.8rem; font-size: 0.85rem;">Xem Bệnh Án</a>

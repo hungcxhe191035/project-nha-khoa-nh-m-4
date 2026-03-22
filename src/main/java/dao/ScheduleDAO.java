@@ -32,6 +32,20 @@ public class ScheduleDAO {
                 s.setStartTime(rs.getTime("start_time"));
                 s.setEndTime(rs.getTime("end_time"));
                 s.setStatus(rs.getString("status"));
+                
+                // Lọc bỏ các ca khám trong quá khứ
+                java.time.LocalDate today = java.time.LocalDate.now();
+                java.time.LocalTime now = java.time.LocalTime.now();
+                java.time.LocalDate workDateLocal = s.getWorkDate().toLocalDate();
+                java.time.LocalTime startTimeLocal = s.getStartTime().toLocalTime();
+                
+                if (workDateLocal.isBefore(today)) {
+                    continue; // Của ngày hôm qua trở về trước
+                }
+                if (workDateLocal.isEqual(today) && startTimeLocal.isBefore(now)) {
+                    continue; // Của ngày hôm nay nhưng giờ đã qua
+                }
+
                 list.add(s);
             }
         } catch (Exception e) {
